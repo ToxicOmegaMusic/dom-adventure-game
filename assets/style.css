@@ -11,13 +11,35 @@ body {
   background: #343434;
   color: #fefefe;
   display: flex;
-  font-family: Helvetica, Arial, sans-serif;
+  /* font-family: Helvetica, Arial, sans-serif; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   justify-content: center;
-  line-height: 140%;
-  min-height: 100vh;
+  /* line-height: 140%; */
+  min-height: 80vh;
 }
 
 main {
   font-size: 2rem;
+  width: 75%;
+  text-align: center;
 }
 
+#choiceArea {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.button {
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  background-color: crimson;
+  color: #181818;
+  border-radius: 5%;
+  border-radius: 1rem;
+  border: #181818 0.2rem solid;
+  padding: 1rem 1.5rem;
+  margin: 1rem;
+}
