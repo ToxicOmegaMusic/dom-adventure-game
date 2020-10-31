@@ -157,9 +157,9 @@ const choice = function(x) {
 					if (inv.includes("Empty Candelabra")) {
 						text.textContent = "You quickly take one of the candles out of it's holder and insert it into your candelabra.";
 						inv.splice(inv.indexOf("Empty Candelabra"), 1);
-						addItem("Lit candle", 1);
+						addItem("Lit Candle", 1);
 					}
-					else if (inv.includes("Lit candle")) {
+					else if (inv.includes("Lit Candle")) {
 						text.textContent = "Don't be greedy...";
 					}
 					else {
@@ -167,7 +167,7 @@ const choice = function(x) {
 					}
 					break;
 				case 2:
-					if (inv.includes("Lit candle")) {
+					if (inv.includes("Lit Candle")) {
 						voidDeep = 1;
 						voidSide = 0;
 						advance(prog = 10, 0);
@@ -250,6 +250,11 @@ const choice = function(x) {
 					checkLock();
 					break;
 				case "Insert coins":
+					inv.sort();
+					let coinCount = 1;
+
+					while (inv.includes("Strange Coin")) { inv.splice(inv.indexOf("Strange Coin"), 1); }
+
 					storyData[7].opt.splice(storyData[7].opt.indexOf("Insert coins"), 1);
 					advance(prog = 7, 0);
 					text.textContent = "You insert the coins into the machine and they click into place.";
@@ -425,7 +430,7 @@ const addItem = function(item, amnt) {
 		}
 	}
 
-	if (!fireLock && inv.includes("Lit candle")) {
+	if (!fireLock && inv.includes("Lit Candle")) {
 		storyData[7].opt.unshift("Light wick");
 		fireLock = true;
 	}
@@ -499,6 +504,8 @@ const tryCode = function() {
 
 // Play ending sequence
 const end = function(x = 0) {
+	displayItems.innerHTML = "";
+	document.querySelector("#invButton").style.display = "none";
 	text.textContent = ending[x];
 	options.innerHTML = x < ending.length - 1 ? tag("Next", "div", "button", 0, `end(${++x})`) : "";
 }
