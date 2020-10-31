@@ -26,7 +26,7 @@ const storyData = {
 		]
 	},
 	"-1": {
-		"desc": [ "Guide: Click the buttons on the screen to choose your fate. Press the \"I\" key at any time to toggle the inventory view." ],
+		"desc": [ "Guide: Click the buttons on the screen to choose your fate. Press the \"I\" button or key at any time to toggle the inventory view." ],
 		"opt": [ "Begin" ]
 	},
 	"0": {
@@ -349,52 +349,57 @@ const advance = function(id, mod) {
 // Inventory stuff
 window.addEventListener("keydown", event => { 
 	if (!event.repeat && event.key == "i") {
-		invsee = !invsee
-		
-		if (invsee) {
-			let lastItem = null;
-			let mult = 1;
-			clearTimeout(itemTimer);
-
-			text.style.display = "none";
-			options.style.display = "none";
-			displayItems.innerHTML = "<div style=\"margin-bottom: 3rem\">Inventory (press \"I\" to close)</div>";
-
-			inv.sort();
-			
-			if (inv.length) {
-				for (let i = 0; i < inv.length + 1; i++) {
-					if (lastItem) {
-						if (inv[i] == lastItem) { mult++; }
-						else {
-							if (inv[i]) {
-								displayItems.innerHTML += ` (x${mult}), `;
-								mult = 1;
-								displayItems.innerHTML += inv[i];
-								lastItem = inv[i];
-							}
-							else {
-								displayItems.innerHTML += ` (x${mult}).`;
-							}
-						}
-					}
-					else {
-						displayItems.innerHTML += inv[i];
-						lastItem = inv[i];
-					}
-				}
-			}
-			else { displayItems.innerHTML += "You have no items."; }
-			
-			displayItems.style.display = "block";
-		}
-		else {
-			text.style.display = "block";
-			options.style.display = "flex";
-			displayItems.style.display = "none";
-		}
+		inventory() 
 	}
 });
+
+const inventory = function() {
+	invsee = !invsee
+	
+	if (invsee) {
+		let lastItem = null;
+		let mult = 1;
+		clearTimeout(itemTimer);
+
+		text.style.display = "none";
+		options.style.display = "none";
+		displayItems.innerHTML = "<div style=\"margin-bottom: 3rem\">Inventory (press \"I\" to close)</div>";
+
+		inv.sort();
+		
+		if (inv.length) {
+			for (let i = 0; i < inv.length + 1; i++) {
+				if (lastItem) {
+					if (inv[i] == lastItem) { mult++; }
+					else {
+						if (inv[i]) {
+							displayItems.innerHTML += ` (x${mult}), `;
+							mult = 1;
+							displayItems.innerHTML += inv[i];
+							lastItem = inv[i];
+						}
+						else {
+							displayItems.innerHTML += ` (x${mult}).`;
+						}
+					}
+				}
+				else {
+					displayItems.innerHTML += inv[i];
+					lastItem = inv[i];
+				}
+			}
+		}
+		else { displayItems.innerHTML += "You have no items."; }
+		
+		displayItems.style.display = "block";
+	}
+	else {
+		text.style.display = "block";
+		options.style.display = "flex";
+		displayItems.style.display = "none";
+	}
+	
+}
 
 const addItem = function(item, amnt) {
 	for (let i = 0; i < amnt; i++) {

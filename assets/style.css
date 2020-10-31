@@ -57,9 +57,16 @@ input {
   align-items: center;
   flex-wrap: wrap;
 }
-
 #input .button {
   font-size: 1.2rem;
   border-radius: 0.5rem;
   padding: 0.2rem 0.5rem;
+}
+
+#invButton {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0.5rem, 0.5rem;
+  background-color: #fefefe;;
 }
