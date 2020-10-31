@@ -48,7 +48,7 @@ const storyData = {
 		"opt": [ "Give up" ]
 	},
 	"3": {
-		"desc": [ "You come to a Victorian-esque room, lit much better than the dark room you woke up in. A large guilded door lies ahead of you." ],
+		"desc": [ "You come to an old Victorian-esque room, lit much better than the dark room you woke up in. A large guilded door lies ahead of you." ],
 		"opt": [
 			"Try the door",
 			"Inspect room",
@@ -95,12 +95,12 @@ const storyData = {
 	"9": {
 		"desc": [
 			"You approach the corner of the wall which seems to be deteriorating. You push through the cobwebs and peer into the hallow cracks. \
-			What you see in the cracks appears to be... Pulsating flesh. You get the feeling that it's staring back at you."
+			What you see in the cracks appears to be pulsating flesh... You get the feeling that it's staring back at you."
 		],
 		"opt": [ "Go back" ]
 	},
 	"10": {
-		"desc": [ "You find yourself in the void illuminated by your candles sparse glow. May it guide you to whatever you seek..." ],
+		"desc": [ "You find yourself in the void illuminated by your candle's sparse glow. May it guide you to whatever you seek..." ],
 		"opt": [
 			"Left",
 			"Forward",
@@ -118,7 +118,7 @@ const storyData = {
 	"12": {
 		"desc": [
 			"Your foot gets caught on something on the floor of this menacing void. You look down and bring your candle close to examine the markings beneath you. \
-			As you wave your lanern across the darkness you make out the word \"Remember\"."
+			As you wave your light across the darkness you make out the word \"Remember\"."
 		],
 		"opt": [ "Retreat to the light" ]
 	}
@@ -126,7 +126,7 @@ const storyData = {
 
 const ending = [
 	"You finally get your well deserved fresh air, and even the feeling of the warm sun beating down on your skin once again.",
-	"Your mind begins to wonder about what awaits you now. What will you do? Where can you find help?",
+	"Your mind begins to wonder about what awaits you now. What will you do? Where can you find help? And who would believe such a bizarre story?",
 	"All of those meaningless questions start fading away as your skin ignites, your flesh burning like acid as it melts off your bones.",
 	"Before the sun sets, your body is nothing more than a lump of muddy remains. Unable to even be called as a corpse, let alone identified as one.",
 	"Not much time remains until you will be waking up in that room again...",
@@ -463,7 +463,7 @@ const checkLock = function() {
 	else if (coinsDone && wickDone && codeDone) {
 		storyData[7].desc[0] = "Nothing left to do here.";
 		text.textContent = "As you solve the last of this strange mechanisms secrets, it begins to shake and rumble before a small opening appears. \
-		it promply drops a beautiful golden key on the ground in front of you.";
+		It promply drops a beautiful golden key on the ground in front of you.";
 		addItem("Guilded Key", 1);
 	}
 }
