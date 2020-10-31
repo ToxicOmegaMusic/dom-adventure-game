@@ -1,5 +1,8 @@
 *, *:after, *:before {
   box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 html {
@@ -24,13 +27,16 @@ main {
   text-align: center;
 }
 
+input {
+  font-size: 1.5rem;
+}
+
 .button {
   cursor: pointer;
   font-weight: bold;
   text-align: center;
   background-color: crimson;
   color: #181818;
-  border-radius: 5%;
   border-radius: 1rem;
   border: #181818 0.2rem solid;
   padding: 1rem 1.5rem;
@@ -43,4 +49,17 @@ main {
   justify-content: center;
   font-size: 1.4rem;
   flex-wrap: wrap;
+}
+
+#input {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#input .button {
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.5rem;
 }
